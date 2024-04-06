@@ -19,7 +19,7 @@ struct CountriesListView: View {
                 .padding()
                 .background {
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.customGray)
+                        .fill(Color.mCustomGray)
                 }
             
             ScrollView {

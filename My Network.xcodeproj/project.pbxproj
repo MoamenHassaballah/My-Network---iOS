@@ -16,6 +16,12 @@
 		532FDCA82BC0B7D600766DFE /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532FDCA72BC0B7D600766DFE /* CountryModel.swift */; };
 		532FDCAA2BC0B8BE00766DFE /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532FDCA92BC0B8BE00766DFE /* extensions.swift */; };
 		532FDCAC2BC0B97300766DFE /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532FDCAB2BC0B97300766DFE /* CountryView.swift */; };
+		53B978EA2BC1842500AD6C99 /* CountrySummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B978E92BC1842500AD6C99 /* CountrySummaryView.swift */; };
+		53B978EC2BC1876100AD6C99 /* InfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B978EB2BC1876100AD6C99 /* InfoItemView.swift */; };
+		53B978EE2BC1A2FB00AD6C99 /* NetworkAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B978ED2BC1A2FB00AD6C99 /* NetworkAboutView.swift */; };
+		53B978F02BC1A40A00AD6C99 /* LeadershipItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B978EF2BC1A40A00AD6C99 /* LeadershipItem.swift */; };
+		53B978F22BC1A5FA00AD6C99 /* LeadershipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B978F12BC1A5FA00AD6C99 /* LeadershipView.swift */; };
+		53B978F42BC1A88F00AD6C99 /* CountrySegmentTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B978F32BC1A88F00AD6C99 /* CountrySegmentTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +35,12 @@
 		532FDCA72BC0B7D600766DFE /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		532FDCA92BC0B8BE00766DFE /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		532FDCAB2BC0B97300766DFE /* CountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
+		53B978E92BC1842500AD6C99 /* CountrySummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySummaryView.swift; sourceTree = "<group>"; };
+		53B978EB2BC1876100AD6C99 /* InfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItemView.swift; sourceTree = "<group>"; };
+		53B978ED2BC1A2FB00AD6C99 /* NetworkAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAboutView.swift; sourceTree = "<group>"; };
+		53B978EF2BC1A40A00AD6C99 /* LeadershipItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipItem.swift; sourceTree = "<group>"; };
+		53B978F12BC1A5FA00AD6C99 /* LeadershipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipView.swift; sourceTree = "<group>"; };
+		53B978F32BC1A88F00AD6C99 /* CountrySegmentTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySegmentTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +97,12 @@
 				532FDC952BC0B1B700766DFE /* ContentView.swift */,
 				532FDCA22BC0B5E500766DFE /* CountriesListView.swift */,
 				532FDCAB2BC0B97300766DFE /* CountryView.swift */,
+				53B978E92BC1842500AD6C99 /* CountrySummaryView.swift */,
+				53B978EB2BC1876100AD6C99 /* InfoItemView.swift */,
+				53B978ED2BC1A2FB00AD6C99 /* NetworkAboutView.swift */,
+				53B978EF2BC1A40A00AD6C99 /* LeadershipItem.swift */,
+				53B978F12BC1A5FA00AD6C99 /* LeadershipView.swift */,
+				53B978F32BC1A88F00AD6C99 /* CountrySegmentTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,8 +190,14 @@
 				532FDCAA2BC0B8BE00766DFE /* extensions.swift in Sources */,
 				532FDC962BC0B1B700766DFE /* ContentView.swift in Sources */,
 				532FDCA32BC0B5E500766DFE /* CountriesListView.swift in Sources */,
+				53B978F42BC1A88F00AD6C99 /* CountrySegmentTabView.swift in Sources */,
+				53B978EC2BC1876100AD6C99 /* InfoItemView.swift in Sources */,
 				532FDCAC2BC0B97300766DFE /* CountryView.swift in Sources */,
+				53B978F22BC1A5FA00AD6C99 /* LeadershipView.swift in Sources */,
+				53B978F02BC1A40A00AD6C99 /* LeadershipItem.swift in Sources */,
 				532FDCA82BC0B7D600766DFE /* CountryModel.swift in Sources */,
+				53B978EE2BC1A2FB00AD6C99 /* NetworkAboutView.swift in Sources */,
+				53B978EA2BC1842500AD6C99 /* CountrySummaryView.swift in Sources */,
 				532FDC942BC0B1B700766DFE /* My_NetworkApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

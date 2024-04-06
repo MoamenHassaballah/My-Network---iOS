@@ -47,11 +47,17 @@ struct ContentView: View {
             .padding()
             .background {
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.customGray)
+                    .fill(Color.mCustomGray)
             }
+            
+            
+            CountrySegmentTabView()
             
         }
         .padding()
+        
+        
+        
     }
 }
 

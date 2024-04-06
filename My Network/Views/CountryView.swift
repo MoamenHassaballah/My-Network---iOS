@@ -30,7 +30,7 @@ struct CountryView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background{
             RoundedRectangle(cornerRadius: 10)
-                .fill(Color.customGray.opacity(0.5))
+                .fill(Color.mCustomGray.opacity(0.5))
         }
     }
 }
