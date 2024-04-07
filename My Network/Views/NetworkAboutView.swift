@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct NetworkAboutView: View {
+    
+    var addBackground = true
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 20){
             Text("About the Company")
@@ -19,8 +22,10 @@ struct NetworkAboutView: View {
         .frame(maxWidth: .infinity)
         .padding()
         .background{
-            RoundedRectangle(cornerRadius: 10)
-                .fill(.white.opacity(0.2))
+            if addBackground {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(.white.opacity(0.2))
+            }
         }
     }
 }
