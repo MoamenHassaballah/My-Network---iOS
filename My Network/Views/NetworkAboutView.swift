@@ -18,6 +18,7 @@ struct NetworkAboutView: View {
                 .foregroundStyle(Color.mGolden)
             
             Text("The UAE is an elective monarchy formed from a federation of seven emirates, consisting of Abu Dhabi (where the federal capital, Abu Dhabi, is located), Ajman, Dubai, Fujairah, Ras Al Khaimah, Sharjah and Umm Al Quwain.[12] Each emirate is governed by a Sheikh and, together, they form the Federal Supreme Council; one of them serves as President of the United Arab Emirates.")
+                .foregroundStyle(.white)
         }
         .frame(maxWidth: .infinity)
         .padding()

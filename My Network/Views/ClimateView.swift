@@ -9,19 +9,21 @@ import SwiftUI
 
 struct ClimateView: View {
     
+    @EnvironmentObject var deviceManager: DeviceManager
+    
     let climateList: [ClimateModel] = [
-        ClimateModel(month: "January", minTemperature: "-5°C", maxTemperature: "5°C"),
-        ClimateModel(month: "February", minTemperature: "-3°C", maxTemperature: "8°C"),
-        ClimateModel(month: "March", minTemperature: "0°C", maxTemperature: "12°C"),
-        ClimateModel(month: "April", minTemperature: "5°C", maxTemperature: "18°C"),
-        ClimateModel(month: "May", minTemperature: "10°C", maxTemperature: "22°C"),
-        ClimateModel(month: "June", minTemperature: "15°C", maxTemperature: "25°C"),
-        ClimateModel(month: "July", minTemperature: "18°C", maxTemperature: "28°C"),
-        ClimateModel(month: "August", minTemperature: "16°C", maxTemperature: "27°C"),
-        ClimateModel(month: "September", minTemperature: "12°C", maxTemperature: "23°C"),
-        ClimateModel(month: "October", minTemperature: "7°C", maxTemperature: "17°C"),
-        ClimateModel(month: "November", minTemperature: "2°C", maxTemperature: "10°C"),
-        ClimateModel(month: "December", minTemperature: "-2°C", maxTemperature: "6°C")
+        ClimateModel(name: "January", minTemperature: -5, maxTemperature: 5),
+                ClimateModel(name: "February", minTemperature: -3, maxTemperature: 8),
+                ClimateModel(name: "March", minTemperature: 0, maxTemperature: 12),
+                ClimateModel(name: "April", minTemperature: 5, maxTemperature: 18),
+                ClimateModel(name: "May", minTemperature: 10, maxTemperature: 22),
+                ClimateModel(name: "June", minTemperature: 15, maxTemperature: 25),
+                ClimateModel(name: "July", minTemperature: 18, maxTemperature: 28),
+                ClimateModel(name: "August", minTemperature: 16, maxTemperature: 27),
+                ClimateModel(name: "September", minTemperature: 12, maxTemperature: 23),
+                ClimateModel(name: "October", minTemperature: 7, maxTemperature: 17),
+                ClimateModel(name: "November", minTemperature: 2, maxTemperature: 10),
+                ClimateModel(name: "December", minTemperature: -2, maxTemperature: 6)
     ]
     
     
@@ -33,24 +35,30 @@ struct ClimateView: View {
                 
                 ForEach(0..<climateList.count, id: \.self, content: { index in
                  
-                    if index % 2 == 0 {
-                        let firstClimate = climateList[index]
-                        let secondClimate = index + 1 < climateList.count ? climateList[index + 1] : nil
-                        
-                        HStack(){
-                            ClimateItem(climate: firstClimate)
+                    if deviceManager.isiPad(){
+                        if index % 2 == 0 {
+                            let firstClimate = climateList[index]
+                            let secondClimate = index + 1 < climateList.count ? climateList[index + 1] : nil
                             
-                            if let secondClimate = secondClimate {
-                                ClimateItem(climate: secondClimate)
+                            HStack(){
+                                ClimateItem(climate: firstClimate)
+                                
+                                if let secondClimate = secondClimate {
+                                    ClimateItem(climate: secondClimate)
+                                }
+                                
+                                
                             }
                             
                             
+                            Divider()
+                            
                         }
-                        
-                        
+                    }else {
+                        ClimateItem(climate: climateList[index])
                         Divider()
-                        
                     }
+                    
                     
                 })
                 
@@ -70,4 +78,5 @@ struct ClimateView: View {
 
 #Preview {
     ClimateView()
+        .environmentObject(DeviceManager())
 }

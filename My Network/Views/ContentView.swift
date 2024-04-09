@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var selectedTab = 2
+    @EnvironmentObject var deviceManager: DeviceManager
     
     var body: some View {
         VStack {
@@ -18,40 +19,13 @@ struct ContentView: View {
             
                 //Tab Bar
             
-            HStack{
-                Picker("What is your favorite color?", selection: $selectedTab) {
-                                Text("Individuals").tag(0)
-                                Text("Entities").tag(1)
-                                Text("Countries").tag(2)
-                            }
-                            
-                            .pickerStyle(.segmented)
-                            .fixedSize()
-                
+            
+            TabsPickerView(selectedTab: $selectedTab)
+            if selectedTab == 2{
+                CountrySegmentTabView()
+            }else{
                 Spacer()
-                
-                Button(action: {}, label: {
-                    HStack{
-                        Image(systemName: "line.3.horizontal.decrease")
-                        Text("Filter")
-                    }
-                    .padding(5)
-                    .background{
-                        RoundedRectangle(cornerRadius: 5)
-                            .stroke()
-                    }
-                })
-                .foregroundStyle(.white)
-                
             }
-            .padding()
-            .background {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.mCustomGray)
-            }
-            
-            
-            CountrySegmentTabView()
             
         }
         .padding()
@@ -63,4 +37,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(DeviceManager())
 }

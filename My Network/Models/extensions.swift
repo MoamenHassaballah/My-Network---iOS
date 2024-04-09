@@ -15,3 +15,25 @@ extension Color {
     public static let mGolden = Color(red: 181/255, green: 154/255, blue: 102/255)
     
 }
+
+
+extension Int {
+    func formattedPopulation() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        
+        switch self {
+        case 0..<1_000:
+            return formatter.string(from: NSNumber(value: self)) ?? "\(self)"
+        case 1_000..<1_000_000:
+            let thousands = Double(self) / 1_000.0
+            return "\(formatter.string(from: NSNumber(value: thousands)) ?? "\(thousands)")K"
+        case 1_000_000..<1_000_000_000:
+            let millions = Double(self) / 1_000_000.0
+            return "\(formatter.string(from: NSNumber(value: millions)) ?? "\(millions)")M"
+        default:
+            let billions = Double(self) / 1_000_000_000.0
+            return "\(formatter.string(from: NSNumber(value: billions)) ?? "\(billions)")B"
+        }
+    }
+}

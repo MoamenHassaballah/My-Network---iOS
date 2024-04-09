@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct CountryHeader: View {
+    
+    @EnvironmentObject var deviceManger: DeviceManager
+    
+    var country: CountryModel
+    
     var body: some View {
         HStack(spacing: 20){
-            Text("🇨🇾")
-                .font(.system(size: 50))
-                .frame(width: 80, height: 80)
+            Text("\(country.flag)")
+                .font(.system(size: deviceManger.countryFlagFontSize()))
+                .frame(width: deviceManger.countryFlagDimentions(), height: deviceManger.countryFlagDimentions())
                 .background{
                     RoundedRectangle(cornerRadius: 10)
+                        .fill(.white)
                 }
             
-            Text("United Arab Emirates")
-                .font(.title)
+            Text("\(country.name.common)")
+                .font(deviceManger.isiPad() ?  .title : .headline)
+                .foregroundStyle(.white)
+            
             
             Spacer()
             
@@ -31,5 +39,6 @@ struct CountryHeader: View {
 }
 
 #Preview {
-    CountryHeader()
+    CountryHeader(country: DemoModels().country)
+        .environmentObject(DeviceManager())
 }

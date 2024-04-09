@@ -9,12 +9,11 @@ import SwiftUI
 
 struct LeadershipItem: View {
     
-    
-    let imageURL = URL(string: "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg")!
+    var leadershipModel: LeadershipModel
     
     var body: some View {
         HStack(alignment: .top, spacing: 20){
-            AsyncImage(url: imageURL) { image in
+            AsyncImage(url: URL(string:leadershipModel.image)!) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -26,19 +25,24 @@ struct LeadershipItem: View {
             
             
             VStack(alignment: .leading, spacing: 10){
-                Text("H.H. Sheikh Khalifa bin Zayed Al Nahyan")
+                Text(leadershipModel.name)
                     .font(.title2)
                 
-                Text("Abu Dhabi")
+                Text(leadershipModel.city)
                     .font(.caption)
                 
-                Text("2015 - Present")
+                Text(leadershipModel.datePeriod)
                     .font(.caption)
             }
+            .foregroundStyle(.white)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            
+            
         }
+        .frame(maxWidth: .infinity)
     }
 }
 
 #Preview {
-    LeadershipItem()
+    LeadershipItem(leadershipModel: DemoModels().leadershipDemo)
 }

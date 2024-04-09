@@ -24,6 +24,10 @@
 		537168F72BC35E43005DE51D /* NaturalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537168F62BC35E43005DE51D /* NaturalModel.swift */; };
 		537168F92BC35F27005DE51D /* NaturalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537168F82BC35F27005DE51D /* NaturalView.swift */; };
 		537168FB2BC3648E005DE51D /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537168FA2BC3648E005DE51D /* TripView.swift */; };
+		53B507802BC591A300687820 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B5077F2BC591A300687820 /* DeviceManager.swift */; };
+		53B507822BC596B500687820 /* TabsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B507812BC596B500687820 /* TabsPickerView.swift */; };
+		53B507842BC5AB9100687820 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B507832BC5AB9100687820 /* NetworkHandler.swift */; };
+		53B507862BC5CA5400687820 /* DemoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B507852BC5CA5400687820 /* DemoModels.swift */; };
 		53B978EA2BC1842500AD6C99 /* CountrySummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B978E92BC1842500AD6C99 /* CountrySummaryView.swift */; };
 		53B978EC2BC1876100AD6C99 /* InfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B978EB2BC1876100AD6C99 /* InfoItemView.swift */; };
 		53B978EE2BC1A2FB00AD6C99 /* NetworkAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B978ED2BC1A2FB00AD6C99 /* NetworkAboutView.swift */; };
@@ -51,6 +55,10 @@
 		537168F62BC35E43005DE51D /* NaturalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalModel.swift; sourceTree = "<group>"; };
 		537168F82BC35F27005DE51D /* NaturalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalView.swift; sourceTree = "<group>"; };
 		537168FA2BC3648E005DE51D /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
+		53B5077F2BC591A300687820 /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
+		53B507812BC596B500687820 /* TabsPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsPickerView.swift; sourceTree = "<group>"; };
+		53B507832BC5AB9100687820 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		53B507852BC5CA5400687820 /* DemoModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModels.swift; sourceTree = "<group>"; };
 		53B978E92BC1842500AD6C99 /* CountrySummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySummaryView.swift; sourceTree = "<group>"; };
 		53B978EB2BC1876100AD6C99 /* InfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItemView.swift; sourceTree = "<group>"; };
 		53B978ED2BC1A2FB00AD6C99 /* NetworkAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAboutView.swift; sourceTree = "<group>"; };
@@ -126,6 +134,7 @@
 				537168F42BC35BCC005DE51D /* NaturalItem.swift */,
 				537168F82BC35F27005DE51D /* NaturalView.swift */,
 				537168FA2BC3648E005DE51D /* TripView.swift */,
+				53B507812BC596B500687820 /* TabsPickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -136,6 +145,9 @@
 				532FDCA72BC0B7D600766DFE /* CountryModel.swift */,
 				532FDCA92BC0B8BE00766DFE /* extensions.swift */,
 				537168F62BC35E43005DE51D /* NaturalModel.swift */,
+				53B5077F2BC591A300687820 /* DeviceManager.swift */,
+				53B507832BC5AB9100687820 /* NetworkHandler.swift */,
+				53B507852BC5CA5400687820 /* DemoModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -215,9 +227,12 @@
 				532FDC962BC0B1B700766DFE /* ContentView.swift in Sources */,
 				537168F92BC35F27005DE51D /* NaturalView.swift in Sources */,
 				537168FB2BC3648E005DE51D /* TripView.swift in Sources */,
+				53B507862BC5CA5400687820 /* DemoModels.swift in Sources */,
 				537168EF2BC2CFEC005DE51D /* ClimateView.swift in Sources */,
 				532FDCA32BC0B5E500766DFE /* CountriesListView.swift in Sources */,
 				53B978F42BC1A88F00AD6C99 /* CountrySegmentTabView.swift in Sources */,
+				53B507842BC5AB9100687820 /* NetworkHandler.swift in Sources */,
+				53B507802BC591A300687820 /* DeviceManager.swift in Sources */,
 				537168EB2BC2C7C9005DE51D /* CountryHeader.swift in Sources */,
 				53B978EC2BC1876100AD6C99 /* InfoItemView.swift in Sources */,
 				532FDCAC2BC0B97300766DFE /* CountryView.swift in Sources */,
@@ -228,6 +243,7 @@
 				537168F12BC351E2005DE51D /* ClimateItem.swift in Sources */,
 				532FDCA82BC0B7D600766DFE /* CountryModel.swift in Sources */,
 				53B978EE2BC1A2FB00AD6C99 /* NetworkAboutView.swift in Sources */,
+				53B507822BC596B500687820 /* TabsPickerView.swift in Sources */,
 				537168ED2BC2C861005DE51D /* ProfileDetailsView.swift in Sources */,
 				53B978EA2BC1842500AD6C99 /* CountrySummaryView.swift in Sources */,
 				532FDC942BC0B1B700766DFE /* My_NetworkApp.swift in Sources */,

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TripView: View {
+    
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
             Text("Trips")
@@ -87,7 +90,7 @@ struct TripView: View {
         .padding(40)
         .background{
             RoundedRectangle(cornerRadius: 10)
-                .fill(.white.opacity(0.1))
+                .fill(colorScheme == .dark ?  .white.opacity(0.1) :  .black.opacity(0.5))
         }
     }
 }

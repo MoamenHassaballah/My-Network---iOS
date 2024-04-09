@@ -8,20 +8,44 @@
 import SwiftUI
 
 struct CountryView: View {
+    
+    @EnvironmentObject var deviceManager: DeviceManager
+    
+    var country: CountryModel = DemoModels().country
+    
+    var onClick: () -> Void
+    
+    var body: some View {
+        if deviceManager.isiPad(){
+            MyCountryView(country: country)
+                .onTapGesture {
+                    onClick()
+                }
+        }else{
+            MyCountryView(country: country)
+        }
+    }
+    
+    
+}
+
+struct MyCountryView : View {
+    var country: CountryModel
     var body: some View {
         HStack(spacing: 30){
-            Text("🇨🇾")
+            Text("\(country.flag)")
                 .font(.system(size: 50))
                 .frame(width: 80, height: 80)
                 .background{
                     RoundedRectangle(cornerRadius: 10)
+                        .fill(.white)
                 }
             
             VStack(alignment: .leading, spacing: 10){
-                Text("United Arab Emirates")
+                Text("\(country.name.common)")
                     .font(.title2)
                 
-                Text("Capital City - Abu Dhabi")
+                Text("Capital City - \(country.capital.first ?? "")")
                     .font(.caption)
             }
         }
@@ -36,6 +60,9 @@ struct CountryView: View {
 }
 
 #Preview {
-    CountryView()
+    CountryView {
+        
+    }
+    .environmentObject(DeviceManager())
     
 }

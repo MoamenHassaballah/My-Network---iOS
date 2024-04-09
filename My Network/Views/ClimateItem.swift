@@ -19,18 +19,18 @@ struct ClimateItem: View {
             
             HStack{
                 HStack{
-                    Text(climate.month)
+                    Text(climate.name)
                         .lineLimit(1)
                         .minimumScaleFactor(0.5)
                     
                     Spacer()
                     
                     HStack(spacing: 30){
-                        Text(climate.maxTemperature)
+                        Text("\(climate.maxTemperature) °C")
                             .lineLimit(1)
                             .minimumScaleFactor(0.5)
                         
-                        Text(climate.minTemperature)
+                        Text("\(climate.minTemperature) °C")
                             .lineLimit(1)
                             .minimumScaleFactor(0.5)
                         

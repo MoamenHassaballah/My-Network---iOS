@@ -11,7 +11,15 @@ import SwiftUI
 struct My_NetworkApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                
+                ContentView()
+                    .environmentObject(DeviceManager())
+                
+            }
+            .environmentObject(DeviceManager())
+            .navigationViewStyle(StackNavigationViewStyle())
+            
         }
     }
 }

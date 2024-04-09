@@ -8,6 +8,14 @@
 import SwiftUI
 
 struct ProfileDetailsView: View {
+    
+    @EnvironmentObject var deviceManager: DeviceManager
+    
+    @Environment(\.colorScheme) var colorScheme
+    var country: CountryModel
+    
+    
+    
     var body: some View {
         ScrollView{
             VStack(spacing: 20){
@@ -15,21 +23,40 @@ struct ProfileDetailsView: View {
                 Text("Profiles")
                 
                 VStack(alignment:.leading, spacing: 40){
-                    CountryHeader()
+                    CountryHeader(country: country)
                     
-                    LazyHGrid(rows: [GridItem(.flexible())], alignment: .center, spacing: 40, content: {
+                    if deviceManager.isiPad(){
+                        LazyHGrid(rows: [GridItem(.flexible())], alignment: .center, spacing: 40, content: {
+                            
+                            //Capital City
+                            InfoItemView(image: "location", title: "Capital City", content: country.capital.first ?? "")
+                            //Area
+                            InfoItemView(image: "square.resize", title: "Area", content: "\(country.area) km")
+                            //Currency
+                            InfoItemView(image: "dollarsign", title: "Currency", content: country.currencies.first?.value.name ?? "")
+                            //Population
+                            InfoItemView(image: "person.2", title: "Population", content: country.population.formattedPopulation())
+                            
+                            
+                        })
+                    }else{
                         
-                        //Capital City
-                        InfoItemView(image: "location", title: "Capital City", content: "Abu Dhabi")
-                        //Area
-                        InfoItemView(image: "square.resize", title: "Area", content: "83,600 km")
-                        //Currency
-                        InfoItemView(image: "dollarsign", title: "Currency", content: "United Arab Emirated Dirham (AED)")
-                        //Population
-                        InfoItemView(image: "person.2", title: "Population", content: "9.89 Million")
+                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], alignment: .center, spacing: 40, content: {
+                            
+                            //Capital City
+                            InfoItemView(image: "location", title: "Capital City", content: country.capital.first ?? "")
+                            //Area
+                            InfoItemView(image: "square.resize", title: "Area", content: "\(country.area) km")
+                            //Currency
+                            InfoItemView(image: "dollarsign", title: "Currency", content: country.currencies.first?.value.name ?? "")
+                            //Population
+                            InfoItemView(image: "person.2", title: "Population", content: country.population.formattedPopulation())
+                            
+                            
+                        })
                         
-                        
-                    })
+                    }
+                    
                     
                 }
                 .padding()
@@ -39,7 +66,12 @@ struct ProfileDetailsView: View {
                 }
                 
                 
-                HStack(alignment: .top){
+                
+                let layout =  deviceManager.isiPad() ?
+                        AnyLayout(HStackLayout(alignment: .top)) :
+                        AnyLayout(VStackLayout())
+                
+                layout{
                     VStack(alignment: .leading){
                         Text("Country Overview")
                         
@@ -49,13 +81,13 @@ struct ProfileDetailsView: View {
                             .frame(height: 2)
                             .background{Rectangle().fill(.white)}
                         
-                        LeadershipView(orientation: 1, hasBackground: false)
+                        LeadershipView(orientation: 1, hasBackground: false, leadershipList: country.leadership)
                         
                     }
                     .padding()
                     .background{
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(.white.opacity(0.1))
+                            .fill(colorScheme == .dark ?  .white.opacity(0.1) :  .black.opacity(0.5))
                     }
                     
                     
@@ -71,7 +103,7 @@ struct ProfileDetailsView: View {
                         .padding()
                         .background{
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(.white.opacity(0.1))
+                                .fill(colorScheme == .dark ?  .white.opacity(0.1) :  .black.opacity(0.5))
                         }
                         
                         
@@ -85,10 +117,12 @@ struct ProfileDetailsView: View {
         }
         .padding()
         .scrollIndicators(.hidden)
+        .frame(maxWidth: .infinity)
         
     }
 }
 
 #Preview {
-    ProfileDetailsView()
+    ProfileDetailsView(country: DemoModels().country)
+        .environmentObject(DeviceManager())
 }
