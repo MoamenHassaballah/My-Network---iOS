@@ -9,6 +9,7 @@ import Foundation
 
 class DemoModels {
     var country: CountryModel = CountryModel(
+        flags: FlagsModel(png: "https://png.pngitem.com/pimgs/s/498-4982415_white-blur-png-transparent-png.png", svg: "https://png.pngitem.com/pimgs/s/498-4982415_white-blur-png-transparent-png.png", alt: "white flag"),
         name: Name(common: "Demo Country", official: "Official Demo Country"),
         currencies: ["USD": Currency(name: "United States Dollar", symbol: "$")],
         capital: ["Demo City"],
@@ -33,9 +34,10 @@ class DemoModels {
         leadership: [
             LeadershipModel(image: "https://example.com/image.jpg", name: "John Doe", city: "Demo City", datePeriod: "2010-2020")
         ],
+        about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         population: 1000000
     )
     
     
-    let leadershipDemo = LeadershipModel(image: "https://example.com/image.jpg", name: "John Doe", city: "Demo City", datePeriod: "2010-2020")
+    let leadershipDemo = LeadershipModel(image: "https://cdn3d.iconscout.com/3d/premium/thumb/arab-man-avatar-11044052-8842456.png", name: "John Doe", city: "Demo City", datePeriod: "2010-2020")
 }

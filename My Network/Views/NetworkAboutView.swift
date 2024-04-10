@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NetworkAboutView: View {
     
+    var aboutText: String
     var addBackground = true
     
     var body: some View {
@@ -17,7 +18,7 @@ struct NetworkAboutView: View {
                 .font(.headline)
                 .foregroundStyle(Color.mGolden)
             
-            Text("The UAE is an elective monarchy formed from a federation of seven emirates, consisting of Abu Dhabi (where the federal capital, Abu Dhabi, is located), Ajman, Dubai, Fujairah, Ras Al Khaimah, Sharjah and Umm Al Quwain.[12] Each emirate is governed by a Sheikh and, together, they form the Federal Supreme Council; one of them serves as President of the United Arab Emirates.")
+            Text(aboutText)
                 .foregroundStyle(.white)
         }
         .frame(maxWidth: .infinity)
@@ -32,5 +33,5 @@ struct NetworkAboutView: View {
 }
 
 #Preview {
-    NetworkAboutView()
+    NetworkAboutView(aboutText: "The UAE is an elective monarchy formed from a federation of seven emirates, consisting of Abu Dhabi (where the federal capital, Abu Dhabi, is located)")
 }

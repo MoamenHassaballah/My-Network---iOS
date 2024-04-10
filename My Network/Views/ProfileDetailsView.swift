@@ -75,7 +75,7 @@ struct ProfileDetailsView: View {
                     VStack(alignment: .leading){
                         Text("Country Overview")
                         
-                        NetworkAboutView(addBackground: false)
+                        NetworkAboutView(aboutText: country.about, addBackground: false)
                         
                         Spacer()
                             .frame(height: 2)
@@ -107,7 +107,7 @@ struct ProfileDetailsView: View {
                         }
                         
                         
-                        TripView()
+//                        TripView()
                     }
                 }
                 

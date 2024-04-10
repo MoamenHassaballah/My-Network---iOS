@@ -20,19 +20,20 @@ struct LeadershipItem: View {
                     } placeholder: {
                         ProgressView()
                     }
-                    .frame(width: 100, height: 100)
+                    .frame(width: 70, height: 70)
+                    .background(.white)
                     .clipShape(Circle())
             
             
             VStack(alignment: .leading, spacing: 10){
                 Text(leadershipModel.name)
-                    .font(.title2)
+                    .font(.title3)
                 
                 Text(leadershipModel.city)
-                    .font(.caption)
+                    .font(.caption2)
                 
                 Text(leadershipModel.datePeriod)
-                    .font(.caption)
+                    .font(.caption2)
             }
             .foregroundStyle(.white)
             .frame(maxWidth: .infinity, alignment: .leading)

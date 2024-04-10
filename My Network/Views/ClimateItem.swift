@@ -14,33 +14,26 @@ struct ClimateItem: View {
     
     var body: some View {
         
-    
-        VStack {
+        HStack{
+            Text(climate.name)
+                .lineLimit(1)
+                .minimumScaleFactor(0.5)
+                .frame(maxWidth: .infinity, alignment: .leading)
             
             HStack{
-                HStack{
-                    Text(climate.name)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.5)
-                    
-                    Spacer()
-                    
-                    HStack(spacing: 30){
-                        Text("\(climate.maxTemperature) °C")
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.5)
-                        
-                        Text("\(climate.minTemperature) °C")
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.5)
-                        
-                    }
-                }
+                Text("\(climate.maxTemperature) °C")
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+                    .frame(width: 50)
+                
+                Text("\(climate.minTemperature) °C")
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+                    .frame(width: 50)
+                
             }
-            
-            
-            
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         
     }
 }

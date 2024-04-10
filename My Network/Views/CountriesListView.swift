@@ -24,6 +24,7 @@ struct CountriesListView: View {
             
             if networkhandler.loading{
                 ProgressView()
+                    .frame(maxWidth: .infinity)
             }else{
                 
                 
@@ -45,55 +46,48 @@ struct CountriesListView: View {
                 
                     
                 
-                ScrollView {
-                    VStack(alignment: .leading){
-                        
-                        
-                        if searchText.isEmpty {
-                            ForEach(networkhandler.countriesSections, id: \.self ){letter in
-                                Text(letter)
-                                
-                                if letter != "Top"{
-                                    let countries = networkhandler.countriesList.filter{
-                                        $0.name.common.starts(with: letter)
-                                    }
+                ScrollViewReader {proxy in
+                    ZStack{
+                        ScrollView {
+                            VStack(alignment: .leading){
+                                if searchText.isEmpty {
                                     
-                                    ForEach(countries, id: \.self ){country in
+                                    //Add countries sections
+                                    ForEach(networkhandler.countriesSections, id: \.self ){letter in
+                                        Text(letter)
+                                            .id(letter)
                                         
-                                        if deviceManager.isiPad(){
-                                            CountryView(country: country, onClick: {
-                                                onCountrySelection(country)
-                                            })
-                                        }else{
-                                            NavigationLink(destination: CountrySummaryView(country: country)) {
-                                                CountryView(country: country, onClick: {})
+                                        //Add top countries first
+                                        if letter != "Top"{
+                                            let countries = networkhandler.countriesList.filter{
+                                                $0.name.common.starts(with: letter)
                                             }
-                                            .foregroundStyle(.white)
+                                            
+                                            ForEach(countries, id: \.self ){country in
+                                                
+                                                CountryListItem(country: country, onCountrySelection: onCountrySelection)
+                                            }
+                                        }else{
+                                            
+                                            //Add other ordered countries
+                                            ForEach(networkhandler.topCountriesList, id: \.self ){country in
+                                                CountryListItem(country: country, onCountrySelection: onCountrySelection)
+                                            }
                                         }
                                     }
                                 }else{
-                                    ForEach(networkhandler.topCountriesList, id: \.self ){country in
-                                        if deviceManager.isiPad(){
-                                            CountryView(country: country, onClick: {onCountrySelection(country)})
-                                        }else{
-                                            NavigationLink(destination: CountrySummaryView(country: country)) {
-                                                CountryView(country: country, onClick: {})
-                                            }
-                                            .foregroundStyle(.white)
-                                        }
+                                    // Show search results
+                                    ForEach(networkhandler.searchCountriesList, id: \.self ){country in
+                                        CountryListItem(country: country, onCountrySelection: onCountrySelection)
                                     }
                                 }
                             }
-                        }else{
-                            ForEach(networkhandler.searchCountriesList, id: \.self ){country in
-                                if deviceManager.isiPad(){
-                                    CountryView(country: country, onClick: {onCountrySelection(country)})
-                                }else{
-                                    NavigationLink(destination: CountrySummaryView(country: country)) {
-                                        CountryView(country: country, onClick: {})
-                                    }
-                                    .foregroundStyle(.white)
-                                }
+                        }
+                        
+                        
+                        LettersScrollBar(sectionsList: networkhandler.countriesSections) { section in
+                            withAnimation {
+                                proxy.scrollTo(section, anchor: .top)
                             }
                         }
                     }

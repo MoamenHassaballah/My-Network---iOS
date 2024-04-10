@@ -38,7 +38,7 @@ struct CountrySummaryView: View {
                 
                 Spacer()
                 
-                NetworkAboutView()
+                NetworkAboutView(aboutText: country.about)
                     
                 Spacer()
                 

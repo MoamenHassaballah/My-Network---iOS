@@ -16,48 +16,51 @@ struct CountryView: View {
     var onClick: () -> Void
     
     var body: some View {
-        if deviceManager.isiPad(){
-            MyCountryView(country: country)
-                .onTapGesture {
-                    onClick()
-                }
-        }else{
-            MyCountryView(country: country)
-        }
-    }
-    
-    
-}
+        
+        let layout = HStack(spacing: 20){
+            
+            AsyncImage(url: URL(string: country.flags.png)) { image in
+                image.resizable()
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(width: 80, height: 50)
 
-struct MyCountryView : View {
-    var country: CountryModel
-    var body: some View {
-        HStack(spacing: 30){
-            Text("\(country.flag)")
-                .font(.system(size: 50))
-                .frame(width: 80, height: 80)
-                .background{
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(.white)
-                }
+//            Text("\(country.flag)")
+//                .font(.system(size: 50))
+//                .frame(width: 80, height: 80)
+//                .background{
+//                    RoundedRectangle(cornerRadius: 10)
+//                        .fill(.white)
+//                }
             
             VStack(alignment: .leading, spacing: 10){
                 Text("\(country.name.common)")
-                    .font(.title2)
+                    .font(.headline)
                 
                 Text("Capital City - \(country.capital.first ?? "")")
                     .font(.caption)
             }
         }
-        
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .background{
             RoundedRectangle(cornerRadius: 10)
                 .fill(Color.mCustomGray.opacity(0.5))
         }
+        
+        if deviceManager.isiPad(){
+            layout.onTapGesture {
+                    onClick()
+                }
+        }else{
+            layout
+        }
     }
+    
+    
 }
+
 
 #Preview {
     CountryView {

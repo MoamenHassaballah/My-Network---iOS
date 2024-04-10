@@ -25,7 +25,8 @@ struct CountrySegmentTabView: View {
                 
                 if deviceManager.isiPad(){
                     if countryModel.name.common.contains("Demo"){
-                        Spacer()
+                        Text("Please select country to display data")
+                            .frame(width: geometry.size.width * 0.7)
                     }else{
                         CountrySummaryView(country: countryModel)
                             .frame(width: geometry.size.width * 0.7)
