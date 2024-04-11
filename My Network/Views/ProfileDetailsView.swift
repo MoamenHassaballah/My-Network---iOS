@@ -19,9 +19,6 @@ struct ProfileDetailsView: View {
     var body: some View {
         ScrollView{
             VStack(spacing: 20){
-                
-                Text("Profiles")
-                
                 VStack(alignment:.leading, spacing: 40){
                     CountryHeader(country: country)
                     

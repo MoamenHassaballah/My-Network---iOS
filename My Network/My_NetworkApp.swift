@@ -15,6 +15,8 @@ struct My_NetworkApp: App {
                 
                 ContentView()
                     .environmentObject(DeviceManager())
+                    .navigationTitle("Profiles")
+                    .navigationBarTitleDisplayMode(.inline)
                 
             }
             .environmentObject(DeviceManager())

@@ -27,11 +27,6 @@ struct LettersScrollBar: View {
             }
         }
         .padding(2)
-        .background{
-            RoundedRectangle(cornerRadius: 50)
-                .opacity(0.2)
-        }
-        .frame(maxWidth: .infinity, alignment: .trailing)
         
     }
 }

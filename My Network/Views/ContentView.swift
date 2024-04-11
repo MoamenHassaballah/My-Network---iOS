@@ -14,8 +14,8 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Profiles")
-                .font(.headline)
+//            Text("Profiles")
+//                .font(.headline)
             
                 //Tab Bar
             

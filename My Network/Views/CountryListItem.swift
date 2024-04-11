@@ -16,8 +16,14 @@ struct CountryListItem: View {
     var body: some View {
         if deviceManager.isiPad(){
             CountryView(country: country, onClick: {onCountrySelection(country)})
+                
         }else{
-            NavigationLink(destination: CountrySummaryView(country: country)) {
+            NavigationLink(destination: 
+                            CountrySummaryView(country: country)
+//                .toolbar(.hidden, for: .navigationBar)
+                .toolbarBackground(Color.mDarkGreen, for: .navigationBar)
+                           
+            ) {
                 CountryView(country: country, onClick: {})
             }
             .foregroundStyle(.white)

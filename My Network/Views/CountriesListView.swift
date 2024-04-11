@@ -47,7 +47,7 @@ struct CountriesListView: View {
                     
                 
                 ScrollViewReader {proxy in
-                    ZStack{
+                    HStack{
                         ScrollView {
                             VStack(alignment: .leading){
                                 if searchText.isEmpty {
