@@ -1,13 +1,13 @@
 //
-//  CountriesListView.swift
+//  IndividualsListView.swift
 //  My Network
 //
-//  Created by Moamen Hassaballah on 06/04/2024.
+//  Created by Moamen Hassaballah on 25/04/2024.
 //
 
 import SwiftUI
 
-struct CountriesListView: View {
+struct IndividualsListView: View {
     
     @EnvironmentObject var deviceManager: DeviceManager
     
@@ -17,7 +17,7 @@ struct CountriesListView: View {
     
     @State var searchText: String = ""
     
-    var onCountrySelection: (_ country: CountryModel) -> Void
+    var onIndividualSelection: (_ individual: IndividualModel) -> Void
     
     var body: some View {
         VStack{
@@ -53,39 +53,30 @@ struct CountriesListView: View {
                                 if searchText.isEmpty {
                                     
                                     //Add countries sections
-                                    ForEach(networkhandler.countriesSections, id: \.self ){letter in
+                                    ForEach(networkhandler.individualsSections, id: \.self ){letter in
                                         Text(letter)
                                             .id(letter)
                                         
-                                        //Add top countries first
-                                        if letter != "Top"{
-                                            let countries = networkhandler.countriesList.filter{
-                                                $0.name.common.starts(with: letter)
-                                            }
+                                        let individuals = networkhandler.individualsList.filter{
+                                            $0.name.first.starts(with: letter)
+                                        }
+                                        
+                                        ForEach(individuals, id: \.self ){individual in
                                             
-                                            ForEach(countries, id: \.self ){country in
-                                                
-                                                CountryListItem(type: .country(country: country), onCountrySelection: onCountrySelection, onIndividualSelection: {d in })
-                                            }
-                                        }else{
-                                            
-                                            //Add other ordered countries
-                                            ForEach(networkhandler.topCountriesList, id: \.self ){country in
-                                                CountryListItem(type: .country(country: country), onCountrySelection: onCountrySelection, onIndividualSelection: {d in })
-                                            }
+                                            CountryListItem(type: .individual(individual: individual), onCountrySelection: {c in }, onIndividualSelection: onIndividualSelection)
                                         }
                                     }
                                 }else{
                                     // Show search results
-                                    ForEach(networkhandler.searchCountriesList, id: \.self ){country in
-                                        CountryListItem(type: .country(country: country), onCountrySelection: onCountrySelection, onIndividualSelection: {d in })
+                                    ForEach(networkhandler.searchIndividualsList, id: \.self ){individual in
+                                        CountryListItem(type: .individual(individual: individual), onCountrySelection: {c in }, onIndividualSelection: onIndividualSelection)
                                     }
                                 }
                             }
                         }
                         
                         
-                        LettersScrollBar(sectionsList: networkhandler.countriesSections) { section in
+                        LettersScrollBar(sectionsList: networkhandler.individualsSections) { section in
                             withAnimation {
                                 proxy.scrollTo(section, anchor: .top)
                             }
@@ -95,16 +86,19 @@ struct CountriesListView: View {
                 
             }
             
-        }       
+        }
         .onAppear{
             if networkhandler.countriesList.isEmpty{
-                networkhandler.getCountriesList()
+                networkhandler.getIndividualsList()
             }
         }
+
     }
 }
 
 #Preview {
-    CountriesListView(onCountrySelection: {country in })
-        .environmentObject(DeviceManager())
+    IndividualsListView { individual in
+        
+    }
+    .environmentObject(DeviceManager())
 }

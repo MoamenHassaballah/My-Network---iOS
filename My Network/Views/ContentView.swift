@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var selectedTab = 2
+    @State private var selectedTab = 0
     @EnvironmentObject var deviceManager: DeviceManager
     
     var body: some View {
@@ -22,8 +22,10 @@ struct ContentView: View {
             
             TabsPickerView(selectedTab: $selectedTab)
             if selectedTab == 2{
-                CountrySegmentTabView()
-            }else{
+                CountrySegmentTabView(type: .country(country: DemoModels().country))
+            }else if selectedTab == 0 {
+                CountrySegmentTabView(type: .individual(individual: DemoModels().individualDemo))
+            } else{
                 Spacer()
             }
             

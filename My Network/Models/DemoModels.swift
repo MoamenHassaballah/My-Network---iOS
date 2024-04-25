@@ -40,4 +40,44 @@ class DemoModels {
     
     
     let leadershipDemo = LeadershipModel(image: "https://cdn3d.iconscout.com/3d/premium/thumb/arab-man-avatar-11044052-8842456.png", name: "John Doe", city: "Demo City", datePeriod: "2010-2020")
+    
+    
+    
+    let individualDemo = IndividualModel(
+        gender: "male",
+        name: IndividualModel.Name(title: "Mr", first: "Adán", last: "Moya"),
+        location: IndividualModel.Location(
+            street: IndividualModel.Street(number: 2868, name: "Cerrada Sur Valverde"),
+            city: "Nacozari",
+            state: "Zacatecas",
+            country: "Mexico",
+            postcode: "74515",
+            coordinates: IndividualModel.Coordinates(latitude: "27.5550", longitude: "-70.4002"),
+            timezone: IndividualModel.Timezone(offset: "-2:00", description: "Mid-Atlantic")
+        ),
+        email: "adan.moya@example.com",
+        login: IndividualModel.Login(
+            uuid: "096458fb-4222-4fbe-914d-ef14163b23b7",
+            username: "crazysnake920",
+            password: "ashleigh",
+            salt: "rijh0R3h",
+            md5: "2993a6a1f04d43600a6ead25854bcf63",
+            sha1: "83bc70c51ba7e2d0dccf3671dfde86c0fcbf82fb",
+            sha256: "48921747d5f8620dcd279a72a55b456f75dd0d8b252788b57aac9af5bc8a0e10"
+        ),
+        dob: IndividualModel.Dob(date: "2000-03-17T21:51:22.555Z", age: 24), // Provide the actual date
+        registered: IndividualModel.Registered(date: "2000-03-17T21:51:22.555Z", age: 20), // Provide the actual date
+        phone: "(604) 171 2747",
+        cell: "(670) 152 5262",
+        id: IndividualModel.Id(name: "NSS", value: "10 23 29 8003 5"),
+        picture: IndividualModel.Picture(
+            large:  "https://randomuser.me/api/portraits/men/28.jpg",
+            medium: "https://randomuser.me/api/portraits/med/men/28.jpg",
+            thumbnail: "https://randomuser.me/api/portraits/thumb/men/28.jpg"
+        ),
+        nat: "MX"
+    )
+    
+    
+    
 }
